@@ -56,6 +56,7 @@ function initCarControl() {
         }
       });
 
+      var COMMAND_INTERVAL = 100;
       var MOVE_THRESHOLD = 20;
       var MIN_SPEED = 50;
       var MAX_SPEED = 255;
@@ -107,11 +108,12 @@ function initCarControl() {
             setTimeout(function() {
               motorLeft.stop();
               motorRight.stop();
-            }, 100);
+            }, COMMAND_INTERVAL * 2);
             break;
           case 'touchmove':
           case 'mousemove':
-            if (joystick.onTouch && new Date().getTime() - prevMoveTime > 100) {
+            if (joystick.onTouch && new Date().getTime() -
+              prevMoveTime > COMMAND_INTERVAL) {
               prevMoveTime = new Date().getTime();
               //console.log('move', joystick.deltaX(), joystick.deltaY());
               moveCar();
