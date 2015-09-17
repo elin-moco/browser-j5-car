@@ -1,0 +1,22 @@
+{
+  "name": "J5 Car Demo",
+  "description": "A sample Apache Cordova application that connects arduino car using Johnny Five via BLE.",
+  "launch_path": "/index.html",
+  "installs_allowed_from": [
+    "*"
+  ],
+  "version": "0.0.1",
+  "developer": {
+    "name": "Eddie Lin",
+    "url": "http://github.com/elin-moco/"
+  },
+  "type": "certified",
+  "icons": {
+    "128": "/img/logo.png"
+  },
+  "default_locale": "en-US",
+  "orientation": "default",
+  "permissions": {
+    "bluetooth": {}
+  }
+}

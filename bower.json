@@ -1,0 +1,31 @@
+{
+  "name": "browser-j5-car",
+  "version": "0.0.1",
+  "authors": [
+    "Eddie Lin <elin@mozilla.com>"
+  ],
+  "description": "A browser johnny five demo to use smartphones to control arduino RC car via BLE.",
+  "main": "index.html",
+  "keywords": [
+    "cordova",
+    "johnny",
+    "five",
+    "arduino",
+    "firefoxos",
+    "phonegap"
+  ],
+  "license": "MPL 2.0",
+  "homepage": "http://github.com/elin-moco/browser-j5-car/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ble-serialport": "~0.1.5",
+    "serialport-io": "~0.1.7",
+    "virtualjoystick.js": "*"
+  }
+}
