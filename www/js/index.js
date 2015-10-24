@@ -8,7 +8,7 @@ function initCarControl() {
     container: joystickElem,
     limitStickTravel: true,
     stickRadius: 60,
-    mouseSupport: false
+    mouseSupport: !window.cordova
   });
 
   var bsp;
@@ -19,19 +19,19 @@ function initCarControl() {
       bsp = new BleSerialPort({address: CONFIG.DEVICE_ADDRESS});
     }
   }
-  //TODO: support socket.io client implementation
-  //else {
-    //var socket = io(CONFIG.SOCKET_IO_SERVER);
-    //
-    //bsp = new SocketIoSerialPort({
-    //  client: socket,
-    //  device: {   //put your device channel/address here
-    //    channel: 'ble',
-    //    name: 'BleFirmata',
-    //    address: CONFIG.DEVICE_ADDRESS
-    //  }
-    //});
-  //}
+  //This is for testing in the browser
+  else {
+    var socket = io(CONFIG.SOCKET_IO_SERVER);
+
+    bsp = new SocketIoSerialPort({
+      client: socket,
+      device: {   //put your device channel/address here
+        channel: 'ble',
+        name: CONFIG.DEVICE_NAME,
+        address: CONFIG.DEVICE_ADDRESS
+      }
+    });
+  }
 
   bsp.connect().then(function() {
     console.log('BSP connected');
@@ -115,7 +115,7 @@ function initCarControl() {
             if (joystick.onTouch && new Date().getTime() -
               prevMoveTime > COMMAND_INTERVAL) {
               prevMoveTime = new Date().getTime();
-              //console.log('move', joystick.deltaX(), joystick.deltaY());
+              console.log('move', joystick.deltaX(), joystick.deltaY());
               moveCar();
             }
             break;
@@ -160,3 +160,8 @@ var app = {
 };
 
 app.initialize();
+
+//This is for testing in the browser
+if (!window.cordova) {
+  document.dispatchEvent(new CustomEvent('deviceready'));
+}
