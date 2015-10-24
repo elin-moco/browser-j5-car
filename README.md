@@ -16,6 +16,11 @@ you'll need to run following command for the first time:
 ```sh
 cordova prepare
 ```
+## Configurations
+
+Currently you'll need to manually specify your BLE device address,
+change your device connection settings in `www/js/config.js`.
+Will use scanning UI to select BLE device in the future.
 
 ## Build and Run
 on Firefox OS device:
@@ -47,9 +52,9 @@ Running on iOS
 [![J5 Car iOS Demo](http://img.youtube.com/vi/18iY6rmT3p8/0.jpg)](http://www.youtube.com/watch?v=18iY6rmT3p8)
 
 
-[Cordova Platform Guides]: https://cordova.apache.org/docs/en/5.0.0/guide_platforms_index.md.html#Platform%20Guides
+[Cordova Platform Guides]: https://cordova.apache.org/docs/en/5.1.1/guide/platforms/index.html
 [git]: https://git-scm.com/
 [node.js]: https://nodejs.org/
-[cordova]: https://cordova.apache.org/docs/en/5.0.0/guide_overview_index.md.html 
+[cordova]: https://cordova.apache.org/docs/en/5.1.1/guide/overview/index.html 
 [bower]: http://bower.io/ 
 [WebIDE]: https://developer.mozilla.org/en-US/docs/Tools/WebIDE
